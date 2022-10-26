@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Level name:</strong>
+  <strong>レベル:</strong>
   <%= @level.level_name %>
 </p>
 
 <p>
-  <strong>Goal step:</strong>
+  <strong>目標歩数:</strong>
   <%= @level.goal_step %>
 </p>
 
-<%= link_to 'Edit', edit_level_path(@level) %> |
-<%= link_to 'Back', levels_path %>
+<%= link_to '編集', edit_level_path(@level) %> |
+<%= link_to '戻る', levels_path %>
