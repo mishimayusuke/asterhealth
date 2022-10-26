@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
+  <strong>ユーザー名:</strong>
   <%= @record.user_id %>
 </p>
 
 <p>
-  <strong>Recorded:</strong>
+  <strong>登録日:</strong>
   <%= @record.recorded %>
 </p>
 
 <p>
-  <strong>Step:</strong>
+  <strong>歩数:</strong>
   <%= @record.step %>
 </p>
 
 <p>
-  <strong>Rank:</strong>
+  <strong>順位:</strong>
   <%= @record.rank %>
 </p>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+<%= link_to '編集', edit_record_path(@record) %> |
+<%= link_to '戻る', records_path %>
