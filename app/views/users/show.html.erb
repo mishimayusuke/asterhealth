@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Password:</strong>
+  <strong>パスワード:</strong>
   <%= @user.password %>
 </p>
 
 <p>
-  <strong>Authority:</strong>
+  <strong>権限:</strong>
   <%= @user.authority %>
 </p>
 
 <p>
-  <strong>Nickname:</strong>
+  <strong>ニックネーム:</strong>
   <%= @user.nickname %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong>レベル:</strong>
   <%= @user.level_id %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', users_path %>

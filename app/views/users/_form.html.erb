@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :password %>
+    <%= form.label :パスワード %>
     <%= form.text_field :password %>
   </div>
 
   <div class="field">
-    <%= form.label :authority %>
+    <%= form.label :権限 %>
     <%= form.number_field :authority %>
   </div>
 
   <div class="field">
-    <%= form.label :nickname %>
+    <%= form.label :ニックネーム %>
     <%= form.text_field :nickname %>
   </div>
 
   <div class="field">
-    <%= form.label :level_id %>
+    <%= form.label :レベル %>
     <%= form.number_field :level_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "登録" %>
   </div>
 <% end %>
