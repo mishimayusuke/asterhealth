@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
+    <%= form.label :ユーザー名 %>
     <%= form.number_field :user_id %>
   </div>
 
   <div class="field">
-    <%= form.label :recorded %>
+    <%= form.label :登録日 %>
     <%= form.datetime_select :recorded %>
   </div>
 
   <div class="field">
-    <%= form.label :step %>
+    <%= form.label :歩数 %>
     <%= form.number_field :step %>
   </div>
 
   <div class="field">
-    <%= form.label :rank %>
+    <%= form.label :順位 %>
     <%= form.number_field :rank %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "登録" %>
   </div>
 <% end %>
