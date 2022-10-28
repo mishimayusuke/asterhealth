@@ -20,8 +20,8 @@
         <td><%= record.recorded %></td>
         <td><%= record.step %></td>
         <td><%= record.rank %></td>
-        <td><%= link_to '見る', record %></td>
-        <td><%= link_to '戻る', edit_record_path(record) %></td>
+        <td><%= link_to '詳細', record %></td>
+        <td><%= link_to '編集', edit_record_path(record) %></td>
         <td><%= link_to '削除', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
