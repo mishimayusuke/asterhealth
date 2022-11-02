@@ -20,5 +20,10 @@
   <%= @user.level_id %>
 </p>
 
+<p>
+  <strong>Eメール:</strong>
+  <%= @user.mail %>
+</p>
+
 <%= link_to '編集', edit_user_path(@user) %> |
 <%= link_to '戻る', users_path %>
