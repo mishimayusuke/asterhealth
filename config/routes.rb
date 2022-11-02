@@ -17,4 +17,9 @@ Rails.application.routes.draw do
     end
   end
   root 'tasks#index'
+  root 'users#index'
+  get 'sessions/new'
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
