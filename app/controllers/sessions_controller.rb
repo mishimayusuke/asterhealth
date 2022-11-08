@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(mail: params[:session][:email].downcase)
     if user && (user.password == params[:session][:password])
       session[:user_id] = user.id
-      redirect_to root_url
+      if user.authority == 1
+        redirect_to users_path
+      else 
+        redirect_to home_top_path
+      end
     else
       render 'new'
     end
