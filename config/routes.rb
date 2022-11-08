@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/top'
   resources :levels
   resources :records
   resources :users

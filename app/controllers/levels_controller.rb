@@ -65,6 +65,6 @@ class LevelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def level_params
-      params.require(:level).permit(:level_name, :goal_step)
+      params.require(:level).permit(:goal_step, level_name:[])
     end
 end
