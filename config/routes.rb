@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'home/top'
   resources :levels
   resources :records
-  resources :users
+  resources :users 
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'users#index'
 
@@ -12,3 +14,4 @@ Rails.application.routes.draw do
   get    '/loginnew',  to: 'sessions#loginnew'
   post   '/loginnew',  to: 'sessions#create_user'
 end
+

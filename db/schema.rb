@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_11_04_004900) do
     t.integer "goal_step"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "level_stop"
   end
 
   create_table "records", force: :cascade do |t|
