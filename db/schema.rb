@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_011105) do
+ActiveRecord::Schema.define(version: 2022_11_04_004900) do
 
   create_table "levels", force: :cascade do |t|
     t.string "level_name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_011105) do
 
   create_table "users", force: :cascade do |t|
     t.string "password"
-    t.integer "authority"
+    t.integer "authority", default: 0
     t.string "nickname"
     t.integer "level_id"
     t.datetime "created_at", precision: 6, null: false
