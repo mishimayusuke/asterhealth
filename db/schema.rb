@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_011105) do
+ActiveRecord::Schema.define(version: 2022_11_09_021132) do
 
   create_table "levels", force: :cascade do |t|
     t.string "level_name"
     t.integer "goal_step"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "level_stop"
   end
 
   create_table "records", force: :cascade do |t|
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_011105) do
     t.integer "level_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin"
     t.string "mail"
   end
 
