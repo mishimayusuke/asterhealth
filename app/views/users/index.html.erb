@@ -22,7 +22,7 @@
         <td><%= user.nickname %></td>
         <td><%= user.level_id %></td>
         <td><%= user.mail%></td>
-        <td><%= link_to '参照', user %></td>
+        <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

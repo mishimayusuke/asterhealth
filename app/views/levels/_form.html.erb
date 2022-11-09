@@ -13,11 +13,16 @@
 
   <div class="field">
     <%= form.label :階級 %>
-    <%= form.check_box :level_name, {multiple: true}, "初級", nil %>初級
-    <%= form.check_box :level_name, {multiple: true}, "中級", nil %>中級
-    <%= form.check_box :level_name, {multiple: true}, "上級", nil %>上級
-    <%= form.check_box :level_name, {multiple: true}, "難易度の固定", nil %>難易度の固定
+    <%= form.radio_button :level_name,"初級"%>初級 
+    <%= form.radio_button :level_name,"中級"%>中級 
+    <%= form.radio_button :level_name,"上級"%>上級 
   </div>
+
+  <div class="field">
+    <%= form.label :難易度の固定%>
+    <%= form.radio_button :level_stop,"あり"%>あり
+    <%= form.radio_button :level_stop,"なし"%>なし
+　</div>
 
   <div class="field">
     <%= form.label :目標歩数 %>
@@ -30,3 +35,5 @@
   
  
 <% end %>
+
+

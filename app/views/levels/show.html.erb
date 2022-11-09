@@ -10,5 +10,10 @@
   <%= @level.goal_step %>
 </p>
 
+<p>
+  <strong>難易度の固定</strong>
+  <%= @level.level_stop%>
+</p>
+
 <%= link_to '編集', edit_level_path(@level) %> |
 <%= link_to '戻る', levels_path %>
