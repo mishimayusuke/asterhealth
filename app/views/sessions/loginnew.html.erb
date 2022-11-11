@@ -1,8 +1,25 @@
 <h1>新規登録</h1>
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "ログイン" %>
+
+<%= form_for(:session, url: loginnew_path) do |form| %>
+  <div class="field">
+    <%= form.label :パスワード %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ニックネーム %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :レベル %>
+    <%= form.number_field :level_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Eメール %>
+    <%= form.text_field :mail %>
+  </div>
+
+  <%= form.submit "登録" %>      <%#押したときにログイン画面と登録実行%>
 <% end %>
