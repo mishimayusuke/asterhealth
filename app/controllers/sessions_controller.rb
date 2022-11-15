@@ -31,6 +31,10 @@ class SessionsController < ApplicationController
       render 'loginnew'
     end
   end
+  
+  def loginnew
+    @levels = Level.all
+  end
 
   def destroy
     log_out if logged_in?
