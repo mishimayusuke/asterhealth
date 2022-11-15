@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_004900) do
+ActiveRecord::Schema.define(version: 2022_11_09_021132) do
 
   create_table "levels", force: :cascade do |t|
     t.string "level_name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_11_04_004900) do
     t.integer "level_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin"
     t.string "mail"
   end
 
