@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
   # GET /records or /records.json
   def index
     @records = Record.all
+    @record_data = Record.new
   end
 
   # GET /records/1 or /records/1.json
@@ -23,12 +24,10 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
 
-    respond_to do |format|
-      if @record.save
-        redirect_to_records_path
-      else
-        render
-      end
+    if @record.save
+      redirect_to records_path
+    else
+      render
     end
   end
 
@@ -65,4 +64,6 @@ class RecordsController < ApplicationController
     def record_params
       params.require(:record).permit(:user_id, :recorded, :step, :rank)
     end
+
+
 end

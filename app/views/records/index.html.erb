@@ -29,20 +29,60 @@
     <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4>歩数を入力してください</h4></h4>
+              <h1>新規作成</h1>
+              <%= form_with(model: @record_data) do |form| %>
+                <div class="field">
+                    <%= form.label :ユーザー名 %>
+                    <%= form.number_field :user_id %>
                 </div>
-                <div class="form-group">
-                    <label>歩数：</label>
-                    <input type="text" class="form-control">
+
+                <div class="field">
+                    <%= form.label :登録日 %>
+                    <%= form.datetime_select :recorded %>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                    <button type="button" class="btn btn-danger">確認</button>
+
+                <div class="field">
+                    <%= form.label :歩数 %>
+                    <%= form.number_field :step %>
                 </div>
+
+                <div class="field">
+                    <%= form.label :順位 %>
+                    <%= form.number_field :rank %>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit "登録" %>
+                </div>
+
+              <% end %>
+
             </div>
         </div>
     </div>
+
+    <table>
+        <thead>
+            <tr>
+            <th>歩数</th>
+            <th colspan="3"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @records.each do |record| %>
+            <tr>
+                <td><%= record.step %></td>
+                <td><%= record.rank %></td>
+
+                <td><%= link_to '詳細', record %></td>
+                <td><%= link_to '編集', edit_record_path(record) %></td>
+
+                <td><%= link_to '削除', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>   
  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -54,28 +94,5 @@
 </html>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>歩数</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @records.each do |record| %>
-      <tr>
-        <td><%= record.step %></td>
-        <td><%= record.rank %></td>
-
-        <td><%= link_to '詳細', record %></td>
-        <td><%= link_to '編集', edit_record_path(record) %></td>
-
-        <td><%= link_to '削除', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <%= link_to "設定",levels_path %>
