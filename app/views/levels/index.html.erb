@@ -17,6 +17,7 @@
       <tr>
         <td><%= level.level_name %></td>
         <td><%= level.goal_step %></td>
+        <td><%= level.level_stop%></td>
         <td><%= link_to '詳細', level %></td>
         <td><%= link_to '編集', edit_level_path(level) %></td>
         <td><%= link_to '削除', level, method: :delete, data: { confirm: '本当に削除してもいいですか？' } %></td>
