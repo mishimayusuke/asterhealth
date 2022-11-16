@@ -1,14 +1,63 @@
 <p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="ja">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+</head>
 
-<h1>レコード</h1>
+<body>
+    <!-- モーダルを開くボタン -->
+    <div class="container">
+        <div class="row my-3">
+            <h1>ホーム画面</h1>
+        </div>
+              
+        <p class="text-right">
+            <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#testModal">入力</button>
+        </div>
+        </p>
+    </div>
+ 
+    <!-- ボタンクリック後に表示される画面の内容 -->
+    <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>歩数を入力してください</h4></h4>
+                </div>
+                <div class="form-group">
+                    <label>歩数：</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-danger">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+ 
+</html>
+
 
 <table>
   <thead>
     <tr>
-      <th>ユーザー名</th>
-      <th>登録日</th>
       <th>歩数</th>
-      <th>順位</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +65,8 @@
   <tbody>
     <% @records.each do |record| %>
       <tr>
-        <td><%= record.user_id %></td>
-        <td><%= record.recorded %></td>
         <td><%= record.step %></td>
+<<<<<<< HEAD
         <td><%= record.rank %></td>
 
         <td><%= link_to '詳細', record %></td>
@@ -26,11 +74,12 @@
 
         <td><%= link_to '削除', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+=======
+        <td><%= link_to '', edit_record_path(record) %></td>
+>>>>>>> 191cc0aebb9bdb416288261f435ee6fdc0267909
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to '新規作成', new_record_path %>
 <%= link_to "設定",levels_path %>
