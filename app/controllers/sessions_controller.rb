@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.authority == 1
         redirect_to users_path
       else 
-        redirect_to home_top_path
+        redirect_to records_path
       end
     else
       render 'new'
