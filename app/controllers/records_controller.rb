@@ -3,6 +3,8 @@ class RecordsController < ApplicationController
 
   # GET /records or /records.json
   def index
+    @level = Level.first
+    @levels = Level.all
     @records = Record.all
     @record_data = Record.new
   end
@@ -44,6 +46,16 @@ class RecordsController < ApplicationController
     end
   end
 
+  def level_update
+    if @level.update(level_params)
+      format.html { redirect_to record_url(@record), notice: "Record was successfully updated." }
+      format.json { render :show, status: :ok, location: @record }
+    else
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @record.errors, status: :unprocessable_entity }
+    end
+  end
+
   # DELETE /records/1 or /records/1.json
   def destroy
     @record.destroy
@@ -63,6 +75,10 @@ class RecordsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def record_params
       params.require(:record).permit(:user_id, :recorded, :step, :rank)
+    end
+
+    def level_params
+      params.require(:level).permit(:goal_step, :level_stop, :level_name)
     end
 
 
