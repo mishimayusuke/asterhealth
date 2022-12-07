@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Level.create(id: 0, level_name: "初級", level_stop: "なし")
 Level.create(id: 1, level_name: "中級", level_stop: "なし")
-Level.create(id: 2, level_name: "上級", level_stop: "なし")
+Level.create(id: 2, level_name: "上級", level_stop: "あり")
