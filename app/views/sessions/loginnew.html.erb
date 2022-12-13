@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :難易度 %>
-    <%= form.collection_select :level_id, @levels, :id, :level_stop %>
+    <%= form.select :level_stop, ["あり","なし"]%>
   </div>
 
   <%= form.submit "登録" %>      <%#押したときにログイン画面と登録実行%>
