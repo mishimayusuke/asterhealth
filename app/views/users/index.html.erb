@@ -10,6 +10,8 @@
       <th>ニックネーム</th>
       <th>レベル</th>
       <th>Eメール</th>
+      <th>難易度</th>
+      <th>難易度の固定</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +24,9 @@
         <td><%= user.nickname %></td>
         <td><%= user.level_id %></td>
         <td><%= user.mail%></td>
+        <td><%= user.level_name%></td>
+        <td><%= user.level_stop%></td>
+        
         <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
