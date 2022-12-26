@@ -5,8 +5,10 @@ class RecordsController < ApplicationController
   def index
     @level = Level.first
     @levels = Level.all
+    @users = User.all
     @records = Record.all
     @record_data = Record.new
+    @user_data = User.find(session[:user_id])
   end
 
   # GET /records/1 or /records/1.json

@@ -35,6 +35,16 @@
     <%= form.label :eメール %>
     <%= form.text_field :mail %>
   </div>
+  
+  <div class="field">
+    <%= form.label :難易度 %>
+    <%= form.text_field :level_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :難易度の固定 %>
+    <%= form.text_field :level_stop %>
+  </div>
 
   <div class="actions">
     <%= form.submit "登録" %>
