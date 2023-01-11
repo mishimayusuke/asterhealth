@@ -30,6 +30,7 @@ class RecordsController < ApplicationController
       # 新しい日付で歩数を登録した場合
       @record = Record.new(record_params)
       @record.user_id = session[:user_id]
+      @record.recorded = Date.today
       if @record.save
         redirect_to records_path
       else
@@ -38,7 +39,7 @@ class RecordsController < ApplicationController
     else
       # 同じ日付で新しい歩数を登録した場合
       @record = Record.find_by( user_id: session[:user_id], created_at: (Date.today)..(Date.today+1) )
-      logger.debug(@record.inspect)
+      @record.recorded = Date.today
       if @record.update(record_params)
         redirect_to records_path
       else
