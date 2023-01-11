@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_12_13_010137) do
     t.integer "level_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin"
     t.string "mail"
     t.string "level_stop"
     t.string "level_name"
