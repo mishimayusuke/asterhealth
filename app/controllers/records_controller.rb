@@ -3,12 +3,11 @@ class RecordsController < ApplicationController
 
   # GET /records or /records.json
   def index
-    @level = Level.first
     @levels = Level.all
-    @users = User.all
     @records = Record.all
     @record_data = Record.new
     @user_data = User.find(session[:user_id])
+    @level_name = Level.find(@user_data.level_id).level_name
   end
 
   # GET /records/1 or /records/1.json
@@ -26,13 +25,28 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    @record = Record.new(record_params)
-
-    if @record.save
-      redirect_to records_path
+    @record = Record.where( user_id: session[:user_id], created_at: (Date.today)..(Date.today+1))
+    if @record.count == 0
+      # 新しい日付で歩数を登録した場合
+      @record = Record.new(record_params)
+      @record.user_id = session[:user_id]
+      if @record.save
+        redirect_to records_path
+      else
+        render
+      end
     else
-      render
+      # 同じ日付で新しい歩数を登録した場合
+      @record = Record.find_by( user_id: session[:user_id], created_at: (Date.today)..(Date.today+1) )
+      logger.debug(@record.inspect)
+      if @record.update(record_params)
+        redirect_to records_path
+      else
+        render
+      end
     end
+    # end
+    
   end
 
   # PATCH/PUT /records/1 or /records/1.json
