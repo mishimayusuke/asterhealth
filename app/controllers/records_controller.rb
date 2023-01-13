@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   # GET /records or /records.json
   def index
     @levels = Level.all
-    @records = Record.all
+    @records = Record.all.order("recorded")
     @record_data = Record.new
     @user_data = User.find(session[:user_id])
     @level_name = Level.find(@user_data.level_id).level_name
@@ -25,12 +25,13 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    @record = Record.where( user_id: session[:user_id], created_at: (Date.today)..(Date.today+1))
+    today = Date.today.strftime("%Y/%m/%d")
+    @record = Record.where( user_id: session[:user_id], recorded: today)
     if @record.count == 0
       # 新しい日付で歩数を登録した場合
       @record = Record.new(record_params)
       @record.user_id = session[:user_id]
-      @record.recorded = Date.today
+      @record.recorded = Date.today.strftime("%Y/%m/%d")
       if @record.save
         redirect_to records_path
       else
@@ -38,8 +39,8 @@ class RecordsController < ApplicationController
       end
     else
       # 同じ日付で新しい歩数を登録した場合
-      @record = Record.find_by( user_id: session[:user_id], created_at: (Date.today)..(Date.today+1) )
-      @record.recorded = Date.today
+      @record = Record.find_by( user_id: session[:user_id], recorded: today)
+      @record.recorded = Date.today.strftime("%Y/%m/%d")
       if @record.update(record_params)
         redirect_to records_path
       else

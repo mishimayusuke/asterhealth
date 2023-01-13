@@ -96,10 +96,7 @@
             <% @records.each do |record| %>
                 <tr>
                     <th><%= record.step %></th>
-                    <th><%= record.recorded.strftime('%Y/%m/%d') %> </th>
-
-                    <!--<td><%= link_to '詳細', record %></td>-->
-                    <!--<td><%= link_to '編集', edit_record_path(record) %></td>-->
+                    <th><%= record.recorded %> </th>
 
                     <td><%= link_to '削除', record, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
                 </tr>
