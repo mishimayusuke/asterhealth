@@ -3,11 +3,19 @@ class RecordsController < ApplicationController
 
   # GET /records or /records.json
   def index
+    today = Date.today.strftime("%Y/%m/%d")
     @levels = Level.all
     @records = Record.all.order("recorded")
+    @today_step = Record.find_by( user_id: session[:user_id], recorded: today)
+    if @today_step.present?
+      @today_step = @today_step.step
+    else
+      @today_step = 0
+    end
     @record_data = Record.new
     @user_data = User.find(session[:user_id])
     @level_name = Level.find(@user_data.level_id).level_name
+    @goal_step = Level.find(@user_data.level_id).goal_step
   end
 
   # GET /records/1 or /records/1.json
