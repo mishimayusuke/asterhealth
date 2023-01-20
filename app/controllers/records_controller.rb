@@ -6,16 +6,41 @@ class RecordsController < ApplicationController
     today = Date.today.strftime("%Y/%m/%d")
     @levels = Level.all
     @records = Record.all.order("recorded")
-    @today_step = Record.find_by( user_id: session[:user_id], recorded: today)
-    if @today_step.present?
-      @today_step = @today_step.step
-    else
-      @today_step = 0
-    end
     @record_data = Record.new
     @user_data = User.find(session[:user_id])
     @level_name = Level.find(@user_data.level_id).level_name
     @goal_step = Level.find(@user_data.level_id).goal_step
+    
+    
+    
+    @today_step = Record.find_by( user_id: session[:user_id], recorded: today)
+    if @today_step.present?
+      if @today_step.step > @goal_step
+        @today_step2 = @goal_step
+      else
+        @today_step2 = @today_step.step
+      end
+    else
+      @today_step2 = 0
+    end
+    today_4 = (Date.today-4).strftime("%Y/%m/%d")
+    days_ary = []
+    #５日分のデータの取得
+    achievement_5days = Record.where( user_id: session[:user_id], recorded: (today_4)..today)
+    achievement_5days.each do | day_record |
+      if day_record.step >= @goal_step
+        days_ary << day_record.step
+      end
+    end
+    @achievement_count = days_ary.count
+
+    logger.debug("===========")
+    logger.debug(@achievement_count)
+    logger.debug(days_ary)
+    
+
+
+   
   end
 
   # GET /records/1 or /records/1.json
