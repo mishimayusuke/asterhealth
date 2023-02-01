@@ -8,11 +8,10 @@ class RecordsController < ApplicationController
     @records = Record.all.order("recorded")
     @record_data = Record.new
     @user_data = User.find(session[:user_id])
+    @login_user_records = @records.where( user_id:session[:user_id])
     @level_name = Level.find(@user_data.level_id).level_name
     @goal_step = Level.find(@user_data.level_id).goal_step
-    
-    
-    
+    #今日の歩数
     @today_step = Record.find_by( user_id: session[:user_id], recorded: today)
     if @today_step.present?
       if @today_step.step > @goal_step
@@ -34,11 +33,24 @@ class RecordsController < ApplicationController
     end
     @achievement_count = days_ary.count
 
+    #logger.debug("===========")
+    #logger.debug(@achievement_count)
+    #logger.debug(days_ary)
+    #順位
+    bigginer_level = @levels.find_by(level_name: "初級")
+    bigginer_users = User.where( level_id: bigginer_level )
+    today_records = []
+    bigginer_users.each do |user|
+      user_record = @records.find_by(user_id: user, recorded: today)
+      today_records.push(user_record.step) if user_record
+    end
+    today_records.sort!
+    @entry = today_records.count
+    @rank = today_records.index( @today_step)
+    @rank = @entry unless @rank
     logger.debug("===========")
-    logger.debug(@achievement_count)
-    logger.debug(days_ary)
-    
-
+    logger.debug(@today_records)
+    logger.debug("===========")
 
    
   end

@@ -107,7 +107,7 @@
         </thead>
 
         <tbody>
-            <% @records.each do |record| %>
+            <% @login_user_records.each do |record| %>
                 <tr>
                     <th><%= record.step %></th>
                     <th><%= record.recorded %> </th>
@@ -129,15 +129,16 @@
 　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
   
   <script>
+    alert(<%= @entry %>-<%= @rank %>)
     var ctx = document.getElementById("myRaderChart");
     var myRadarChart = new Chart(ctx, {
         type: 'radar', 
         data: { 
-
+// /<%= @entry %>*10
             labels: ["歩数", "順位", "継続度"],　//継続度は5日前から各レベルで何歩以上歩いたかを確認し、歩いた場合1を代入し合計で計算
             datasets: [{
                 label: 'Aさん',
-                data: [(<%= @today_step2 %>/<%= @goal_step %>)*10 , 3*2, (<%= @achievement_count%>/5)*10 ],// 歩数「(step/goalstep)*10」、順位「((100-rank)/100*10」、継続度「継続日*2」
+                data: [(<%= @today_step2 %>/<%= @goal_step %>)*10, <%= @entry %>-<%= @rank %>, (<%= @achievement_count%>/5)*10 ],// 歩数「(step/goalstep)*10」、順位「((100-rank)/100*10」、継続度「継続日*2」
                 backgroundColor: 'RGBA(0,128,180, 0.5)',
                 borderColor: 'RGBA(0,128,180, 1)',
                 borderWidth: 1.5,
