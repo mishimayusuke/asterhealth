@@ -1,3 +1,15 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.chart-container {
+  position: relative;
+  height: 65vh;
+  width: 80vw;
+}
+
+@media(min-width: 700px){
+  .chart-container{
+    width: 80vw;
+    height: 70vh;
+  }
+}
