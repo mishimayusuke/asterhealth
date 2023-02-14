@@ -137,7 +137,7 @@
 // /<%= @entry %>*10
                 labels: ["歩数", "順位", "継続度"],　//継続度は5日前から各レベルで何歩以上歩いたかを確認し、歩いた場合1を代入し合計で計算
                 datasets: [{
-                    label: 'Aさん',
+                    label: '<%= @user_data.nickname %>',
                     data: [(<%= @today_step2 %>/<%= @goal_step %>)*10 , 9, (<%= @achievement_count%>/5)*10 ],
                     backgroundColor: 'RGBA(0,128,180, 0.5)',
                     borderColor: 'RGBA(0,128,180, 1)',
