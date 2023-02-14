@@ -49,7 +49,10 @@ class RecordsController < ApplicationController
     @rank = today_records.index( @today_step)
     @rank = @entry unless @rank
     logger.debug("===========")
-    logger.debug(@today_records)
+    logger.debug(@entry)
+    logger.debug(@rank)
+    logger.debug(@today_step)
+    logger.debug(today_records)
     logger.debug("===========")
 
    
