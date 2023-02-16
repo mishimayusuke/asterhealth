@@ -1,10 +1,7 @@
 <h1>新規登録</h1>
 
 <%= form_for(:session, url: loginnew_path) do |form| %>
-  <div class="field">
-    <%= form.label :パスワード %>
-    <%= form.text_field :password %>
-  </div>
+<%= form_for(:session, url: loginnew_path) do |form| %>
 
   <div class="field">
     <%= form.label :ニックネーム %>
@@ -14,6 +11,11 @@
   <div class="field">
     <%= form.label :Eメール %>
     <%= form.text_field :mail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :パスワード %>
+    <%= form.text_field :password %>
   </div>
 
   <div class="field">
